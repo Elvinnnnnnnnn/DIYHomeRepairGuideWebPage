@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DIY Home Repaire Guide | <%= title %></title>
+        <link rel="stylesheet" href="/Contacts/contacts.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+
+    <body>
+
+        <nav>
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <i class="fas fa-bars"></i>
+            </label>
+            <a href="/"><img src="/Website_Logo.png"></a>
+            <ul>
+                <li><a href="/home">Home</a></li>
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/contacts">Contacts</a></li>
+            </ul>
+        </nav>
+
+        <div class="main">
+
+            <div class="contacts-container">
+                
+                <div class="contacts-details">
+                    <form class="contacts-box1" id="contactForm">
+                        <p>Contact Us</p>
+                        <h1>Get In Touch</h1>
+    
+                        <label for="nameId">Name</label> <br>
+                        <input id="nameId" type="text" placeholder="Your Name.." required><br><br>
+    
+                        <label for="emailId">Email</label> <br>
+                        <input id="emailId" type="text" placeholder="Your Email.." required><br><br>
+    
+                        <label for="subjectId">Subject</label> <br>
+                        <input id="subjectId" type="text" placeholder="Title.." required> <br><br>
+    
+                        <label for="messageId">Message</label> <br>
+                        <textarea placeholder="Type Here.." id="messageId" required></textarea>
+    
+                        <button id="buttonId">Send Now</button>
+                    </form>
+    
+                    <div class="contacts-box2">
+                        <p>We’re here to help! Whether you have questions about a repair, need guidance on a DIY project, or want to share your feedback, we’d love to hear from you. Reach out to us through our email, phone, or social media channels, and our team will be happy to assist you. Your input helps us improve and continue providing the best home repair guides. Let’s build, fix, and improve together one project at a time!</p>
+                        <div class="contacts">
+                            <div class="call-container">
+                                <i class="fa-solid fa-phone call-icon"></i>
+                                <p>Phone Number</p>
+                                <p>091234567890</p>
+                            </div>
+                            <div class="email-container">
+                                <i class="fa-solid fa-envelope email-icon"></i>
+                                <p>Email Address</p>
+                                <p>DiyHomeRepairGuide@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+        </div>
+
+        <script>
+
+          document.getElementById("contactForm").addEventListener("submit", async (event) => {
+              event.preventDefault();
+
+              const name = document.getElementById("nameId").value;
+              const email = document.getElementById("emailId").value;
+              const subject = document.getElementById("subjectId").value;
+              const message = document.getElementById("messageId").value;
+
+              try {
+                const response = await fetch("/submit-message", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify({ name, email, subject, message }),
+                });
+
+                if (response.ok) {
+                  document.getElementById("contactForm").reset();
+                } else {
+                  alert("Error sending message. Please try again.");
+                }
+              } catch (error) {
+                console.error("Error:", error);
+                alert("An error occurred. Please try again.");
+              }
+            });
+
+        </script>
+
+    </body>
+
+</html>

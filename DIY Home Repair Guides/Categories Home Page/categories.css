@@ -1,0 +1,361 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    font-family: 'Poppins';
+    background-image: url(/photo_backround.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+nav{
+    width: 100%;
+    height: 100px
+}
+
+nav img{
+    margin-left: 60px;
+    width: 100%;
+    max-width: 120px;
+}
+
+nav ul{
+    float: right;
+    list-style: none;
+    margin-right: 100px;
+}
+
+nav ul li{
+    display: inline-block;
+    line-height: 100px;
+    margin: 0 40px;
+}
+
+nav ul li a{
+    font-family: 'Poppins';
+    text-decoration: none;
+    color: black;
+    text-transform: uppercase;
+}
+
+nav ul li a:hover{
+    color: gray;
+    transition: 1;
+}
+
+.checkbtn{
+    font-size: 30px;
+    float: right;
+    color: black;
+    cursor: pointer;
+    line-height: 100px;
+    margin-right: 50px;
+    display: none;
+}
+
+#check{
+    display: none;
+}
+
+@media (max-width: 952px) {
+    nav img{
+        margin-left: 40px;
+    }
+    nav ul li a{
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 700px) {
+    nav img{
+        width: 110px;
+    }
+
+    .checkbtn{
+        display: block;
+    }
+
+    nav ul{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        top: 100px;
+        left: -100%;
+        text-align: center;
+        transition: all .5s;
+        background-color: rgba(255, 255, 255, 0.9);
+    }
+    nav ul li{
+        display: block;
+        line-height: 10px;
+        margin-top: 70px;
+    }
+
+    nav ul li a{
+        font-size: 19px;
+    }
+
+    #check:checked ~ ul{
+        left: 0;
+    }
+}
+
+.main{
+    display: flex;
+    justify-content: center;
+}
+
+.categories-container{
+    border: 1px solid black;
+    width: 100%;
+    height: 100%;
+    margin: 10px 40px 20px 40px;
+    padding: 50px 20px 50px 20px;
+    max-width: 100%;
+}
+
+.tutorial-container {
+    display: flex;
+}
+
+/* Category Area */
+
+.tutorial-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(370px, 370px));
+    gap: 40px;
+    justify-content: center;
+}
+
+.leakyfaucet-container{
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    cursor: pointer;
+}
+
+.leakyfaucet-container:hover{
+    box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.2);
+    filter: brightness(0.9);
+}
+
+.leakyfaucet-photo{
+    width: 100%;
+    height: 200px;
+    border-radius: 15px;
+}
+
+.leakyfaucet-header{
+    font-size: 20px;
+}
+
+.leakyfaucet-paragraph{
+    font-size: 12px;
+}
+
+.video-container {
+    display: none;
+    position: fixed;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    background-color: rgb(57, 57, 131);
+    border-radius: 1rem;
+    max-width: 800px;
+    width: 100%;
+    height: 65%;
+    padding: 2rem 1rem;
+    z-index: 1;
+    margin: 0 30px 0 30px;
+}
+
+#remove-btn{
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+    font-size: 1.2rem;
+    background-color: #fff;
+    border: none;
+    font-size: 12px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+iframe{
+    position: absolute;
+    top: 3.5rem;
+    max-width: 770px;
+    width: 100%;
+    height: 55vh;
+    border-radius: 1rem;
+}
+
+.categories-title{
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 40px;
+}
+
+@media (max-width:1330px) {
+    .tutorial-container{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
+        gap: 40px;
+        justify-content: center;
+    }
+
+    .leakyfaucet-photo{
+        height: 150px;
+    }
+    
+
+    .video-container{
+        max-width: 700px;
+        width: 100%;
+        height: 55%;
+    }
+
+    iframe{
+        max-width: 665px;
+        width: 100%;
+        height: 45vh;
+    }
+}
+
+@media (max-width:1120px) {
+    .tutorial-container{
+        grid-template-columns: repeat(auto-fit, minmax(200px, 240px));
+        gap: 40px;
+    }
+
+    .leakyfaucet-photo{
+        height: 120px;
+    }
+
+    .leakyfaucet-header{
+        font-size: 17px;
+    }
+    
+    .leakyfaucet-paragraph{
+        font-size: 11px;
+    }
+
+    .video-container{
+        max-width: 600px;
+        width: 100%;
+        height: 50%;
+    }
+
+    iframe{
+        max-width: 570px;
+        width: 100%;
+        height: 40vh;
+    }
+  
+}
+
+@media (max-width:940px) {
+    .tutorial-container{
+        grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
+        gap: 40px;
+    }
+
+    .leakyfaucet-photo{
+        height: 150px;
+    }
+
+    .video-container {
+        max-width: 500px;
+        width: 100%;
+        height: 45%;
+        top: 45%;
+        left: 46.5%;
+    }
+
+    iframe{
+        max-width: 465px;
+        width: 100%;
+        height: 35vh;
+    }
+  
+}
+
+@media (max-width:780px) {
+    .tutorial-container{
+        grid-template-columns: repeat(auto-fit, minmax(200px, 240px));
+        gap: 40px;
+    }
+
+    .leakyfaucet-photo{
+        height: 120px;
+    }
+}
+
+@media (max-width:670px) {
+    .tutorial-container{
+        grid-template-columns: repeat(1, 1fr);
+        gap: 20px;
+    }
+
+    .leakyfaucet-photo{
+        height: 230px;
+    }
+
+    
+    .video-container {
+        max-width: 400px;
+        width: 100%;
+        height: 40%;
+        top: 45%;
+        left: 45.5%;
+    }
+
+    iframe{
+        max-width: 370px;
+        width: 100%;
+        height: 30vh;
+    }
+  
+
+}
+
+@media (max-width:500px) {
+    .video-container {
+        grid-template-columns: repeat(1, 1fr);
+        max-width: 300px;
+        width: 100%;
+        height: 30%;
+        top: 45%;
+        left: 44%;
+    }
+
+    iframe{
+        max-width: 265px;
+        width: 100%;
+        height: 20vh;
+    }
+  
+
+}
+
+@media (max-width:415px) {
+    .leakyfaucet-photo{
+        height: 150px;
+    }
+
+  
+
+}
