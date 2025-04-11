@@ -13,7 +13,9 @@ app.set('views', 'DIY Home Repair Guides');
 
 
 // Running the server
-app.listen(3000);
+app.listen(3000, 'localhost', () => {
+    console.log('Server running at http://localhost:3000');
+  });
 
 // Routes for folders
 app.use(express.static('DIY Home Repair Guides'));
