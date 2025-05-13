@@ -17,7 +17,6 @@ app.listen(3000, () => {
   console.log('Server is running on http://localhost:3000');
 });
 
-
 // Routes for folders
 app.use(express.static('DIY Home Repair Guides'));
 app.use(express.static('Pictures'));
